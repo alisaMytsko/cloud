@@ -1,0 +1,5 @@
+{
+  "serverPort": 5000,
+  "dbUrl": "mongodb+srv://levsha:sonyericson666@cluster0.nwtht.mongodb.net/disk?retryWrites=true&w=majority",
+  "secret": "disc-secret"
+}
