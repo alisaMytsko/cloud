@@ -7,8 +7,7 @@ export const actions = {
   SET_POP_UP_DISPLAY: 'POP_UP_DISPLAY',
   PUSH_TO_STACK: 'PUSH_TO_STACK',
   POP_FROM_STACK: 'POP_TO_STACK',
-  ADD_TO_FILE_PATH: 'ADD_TO_FILE_PATH',
-  BACK_TO_FILE_PATH: 'BACK_TO_FILE_PATH',
+  UPLOAD_FILES: 'UPLOAD_FILES'
 };
 
 
@@ -20,6 +19,4 @@ export const addFileActionCreator = file => ({ type: actions.ADD_FILE, payload: 
 export const setCurrentDirActionCreator = dir => ({ type: actions.SET_CURRENT_DIR, payload: dir });
 export const pushToStack = stack => ({ type: actions.PUSH_TO_STACK, payload: stack });
 export const popFromStack = stack => ({ type: actions.POP_FROM_STACK, payload: stack });
-
-export const addToFilePath = name => ({ type: actions.ADD_TO_FILE_PATH, payload: name });
-export const backToFilePath = path => ({ type: actions.BACK_TO_FILE_PATH, payload: path });
+export const uploadFiles = files => ({ type: actions.UPLOAD_FILES, payload: files });

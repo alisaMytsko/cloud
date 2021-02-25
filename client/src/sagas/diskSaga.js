@@ -1,7 +1,7 @@
 import { call, takeEvery, put } from 'redux-saga/effects';
 import { actions, setFilesActionCreator,addFileActionCreator } from '../actions/file'
 import {toastr} from 'react-redux-toastr'
-import { getFiles, createFile } from '../api/disk';
+import { getFiles, createFile, uploadFile } from '../api/disk';
 
 
 export function* getFilesSaga({ payload }) {
@@ -23,8 +23,26 @@ export function* createFileSaga({ payload }) {
   }
 }
 
+export function* uploadFileSaga({ payload }) {
+  try {
+    console.log(payload);
+    const formData = new FormData();
+    formData.append('file', payload.file);
+    if (payload.dirId) {
+      formData.append('dirId', payload.dirId);
+    }
+
+    const { data } = yield call(uploadFile, formData);
+    console.log(data);
+    yield put(addFileActionCreator(data));
+  } catch (e) {
+    toastr.error(e.response.data.message);
+  }
+}
+
 
 export default [
+  takeEvery(actions.UPLOAD_FILES, uploadFileSaga),
   takeEvery(actions.GET_FILES, getFilesSaga),
   takeEvery(actions.CREATE_FILE, createFileSaga),
 ];
