@@ -21,7 +21,7 @@ export function* logInSaga({ payload }) {
     yield put(appendUserActionCreator(data))
     localStorage.setItem('token', data.token);
   } catch (e) {
-    toastr.error();
+    toastr.error(e.response.data.message);
   }
 }
 

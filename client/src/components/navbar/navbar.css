@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    height: 50px;
+/*    height: 50px;*/
     justify-content: center;
     background-color: white;
     width: 100%;
@@ -12,10 +12,11 @@
 }
 .navbar__login {
     margin-left: auto;
-    margin-right: 20px;
+    margin-right: 50px;
 }
 .container {
     width: 1140px;
+    height: 70px;
     display: flex;
     align-items: center;
 }

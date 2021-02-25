@@ -5,6 +5,7 @@ const fileState = {
   currentDir: null,
   popupDisplay: 'none',
   dirStack: [],
+  filePath: '/'
 }
 
 export default function fileReducer(state = fileState, action) {
@@ -38,6 +39,16 @@ export default function fileReducer(state = fileState, action) {
       return {
         ...state,
         dirStack: [...state.dirStack, action.payload],
+      }
+    case actions.ADD_TO_FILE_PATH:
+      return {
+        ...state,
+        filePath: `${state.filePath}/${action.payload}`,
+      }
+    case actions.BACK_TO_FILE_PATH:
+      return {
+        ...state,
+        filePath: action.payload,
       }
     default:
       return state
