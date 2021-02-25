@@ -12,6 +12,6 @@ export const authRequest = async (options) => {
     options.url,
     {headers: {
         Authorization:`Bearer ${localStorage.getItem('token')}`
-    }},
+      }},
   );
 }

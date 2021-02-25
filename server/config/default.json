@@ -1,5 +1,9 @@
 {
   "serverPort": 5000,
-  "dbUrl": "mongodb+srv://levsha:sonyericson666@cluster0.nwtht.mongodb.net/disk?retryWrites=true&w=majority",
+  "dbUrl": "mongodb://127.0.0.1:27017/local",
   "secret": "disc-secret"
 }
+
+
+//mongodb://127.0.0.1:27017/local
+//mongodb+srv://levsha:sonyericson666@cluster0.nwtht.mongodb.net/disk?retryWrites=true&w=majority

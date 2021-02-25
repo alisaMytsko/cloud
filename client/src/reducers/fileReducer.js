@@ -3,6 +3,8 @@ import {actions} from "../actions/file";
 const fileState = {
   files: [],
   currentDir: null,
+  popupDisplay: 'none',
+  dirStack: [],
 }
 
 export default function fileReducer(state = fileState, action) {
@@ -16,6 +18,26 @@ export default function fileReducer(state = fileState, action) {
       return {
         ...state,
        files: action.payload,
+      }
+    case actions.ADD_FILE:
+      return {
+        ...state,
+        files: [...state.files, action.payload]
+      }
+    case actions.SET_POP_UP_DISPLAY:
+      return {
+        ...state,
+        popupDisplay: action.payload,
+      }
+    case actions.PUSH_TO_STACK:
+      return {
+        ...state,
+        dirStack: [...state.dirStack, action.payload],
+      }
+    case actions.POP_FROM_STACK:
+      return {
+        ...state,
+        dirStack: [...state.dirStack, action.payload],
       }
     default:
       return state

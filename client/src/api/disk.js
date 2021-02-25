@@ -8,3 +8,12 @@ export function* getFiles(payload) {
     }});
 }
 
+export function* createFile(payload) {
+  return yield call(axios.post, 'http://localhost:5000/api/files',
+    payload,
+    {headers: {
+        Authorization:`Bearer ${localStorage.getItem('token')}`
+      }}
+  );
+}
+
